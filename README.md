@@ -15,6 +15,8 @@ Example:
   ## Delete
   ./aws-cf-stack.sh delete MyCFStack
   ```
+**NOTE:** When creating the IAM roles, must include the --capabilities CAPABILITY_NAMED_IAM flags when running the script.
+
 ## CloudFormation inputs:
 - network.yml : Code to build the appropriate network resources
 - network_params.json: Parameters for networking
@@ -27,3 +29,6 @@ Example:
 - network
 - roles
 - servers
+
+### URL
+http://udaci-webap-14yeenztb4048-344504401.us-west-2.elb.amazonaws.com/
