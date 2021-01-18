@@ -5,7 +5,7 @@
 ## Included Code:
 - aws-cf-stack.sh
   A bash script to create/update/delete/describe/list cloudformation stacks
-  **NOTE** awscli MUST be install before using scripts
+**NOTE** awscli MUST be install before using scripts
 
 
 Example:
