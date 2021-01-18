@@ -22,3 +22,8 @@ Example:
 - role_params.json: Parameters for the Roles
 - servers.yml: Resources for deployment of the code
 - server_params.json: Parameters for the servers
+
+## Stack Creation Order:
+- network
+- roles
+- servers
