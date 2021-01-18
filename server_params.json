@@ -1,0 +1,14 @@
+[
+	{
+		"ParameterKey": "EnvironmentName",
+		"ParameterValue": "UdacityProjectST1"
+	},
+	{
+		"ParameterKey": "S3BucketName",
+		"ParameterValue": "udacity-devops-index-store"
+	},
+	{
+		"ParameterKey": "AppZipName",
+		"ParameterValue": "fake-app.zip"
+	}
+]

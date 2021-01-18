@@ -1,0 +1,43 @@
+Parameters:
+    EnvironmentName:
+      Description: An environment name that will be prefixed to resource names
+      Type: String
+      Default: UdacityProjectTest
+      
+Resources:
+    ## Need to define a IAM role to give the app programmatic access to S3 bucket
+    ## Project Requirement: IAM Role to download app from S3 bucket
+    WebAppS3Role:
+      Type: 'AWS::IAM::Role'
+      Properties:
+        ManagedPolicyArns:
+          - 'arn:aws:iam::aws:policy/AmazonS3FullAccess'
+        AssumeRolePolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: 'Allow'
+              Principal:
+                Service:
+                  - 'ec2.amazonaws.com'
+              Action:
+                - 'sts:AssumeRole'
+        Path: '/'
+        
+    WebAppInstance:
+      Type: 'AWS::IAM::InstanceProfile'
+      Properties:
+        Path: '/'
+        Roles:
+          - Ref: WebAppS3Role
+          
+Outputs:
+  IAMRoleWebApp:
+    Description: 'Allow EC2 instances to manage S3'
+    Value: !Ref WebAppInstance
+    Export:
+      Name: !Sub ${EnvironmentName}-IAM-NAME
+  IAMRoleWebAppArn:
+    Description: IAM InstanceProfile ARN
+    Value: !GetAtt WebAppS3Role.Arn
+    Export:
+      Name: !Sub ${EnvironmentName}-IAM-ARN          
